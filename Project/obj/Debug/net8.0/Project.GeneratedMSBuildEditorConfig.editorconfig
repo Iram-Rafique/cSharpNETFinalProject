@@ -18,12 +18,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\ladyb\OneDrive\Desktop\Coursework2\Project
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/ladyb/OneDrive/Desktop/Coursework2/Project/Pages/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ladyb/OneDrive/Desktop/Coursework2/Project/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ladyb/OneDrive/Desktop/Coursework2/Project/Pages/Insert.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5zZXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ladyb/OneDrive/Desktop/Coursework2/Project/Pages/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ladyb/OneDrive/Desktop/Coursework2/Project/Pages/ViewAlbumDetails.cshtml]

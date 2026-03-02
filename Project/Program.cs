@@ -16,7 +16,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();   // Serve CSS, JS, wwwroot files
 
 app.UseRouting();
-
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 app.MapRazorPages();    // Map Razor Pages routes
 
 app.Run();

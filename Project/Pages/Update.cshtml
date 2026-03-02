@@ -1,0 +1,90 @@
+ @* @page "{AlbumID:int}"
+@model Project.Pages.UpdateModel
+
+<h1>Update Album</h1>
+
+@if (Model.Album == null)
+{
+    <p>Album not found.</p>
+}
+else
+{
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="AlbumId" value="@Model.Album.AlbumId" />
+
+        <div>
+            <label>Title:</label>
+            <input type="text" name="Title" value="@Model.Album.Title" required />
+        </div>
+
+        <div>
+            <label>Artist Name:</label>
+            <select name="ArtistId" required>
+                @foreach (var artist in Model.Artists)
+                {
+                    <option value="@artist.ArtistId" 
+                        @(artist.ArtistId == Model.Album.ArtistId ? "selected" : "")>
+                        @artist.Name
+                    </option>
+                }
+            </select>
+        </div>
+
+        <button type="submit">Update</button>
+        <a asp-page="/Index"><button type="button">Cancel</button></a>
+    </form>
+}  *@
+
+@page "{id:int}"
+@model Project.Pages.UpdateModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+    <h1>Update Album</h1>
+
+    @if (Model.Album == null)
+    {
+        <p>Album not found.</p>
+    }
+    else
+    {
+        <form method="post">
+             @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Album.AlbumId" />
+
+            <div>
+                Album Title:
+                <input asp-for="Album.Title" required />
+            </div>
+
+            <div>
+                Artist:
+                <select asp-for="Album.ArtistId" required>
+                    @foreach (var artist in Model.Artists)
+                    {
+                        <option value="@artist.ArtistId">@artist.Name</option>
+                    }
+                </select>
+            </div>
+
+            <h3>Tracks</h3>
+            <table border="1" style="border-collapse:collapse; width:50%;">
+                <tr>
+                    <th>Track Name</th>
+                </tr>
+                @for (int i = 0; i < Model.Tracks.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            <input type="hidden" asp-for="Tracks[i].TrackId" />
+                            <input type="text" asp-for="Tracks[i].Name" required />
+                        </td>
+                    </tr>
+                }
+            </table>
+
+            <button type="submit">Save All</button>
+            <a asp-page="/Index"><button type="button">Cancel</button></a>
+        </form>
+    }

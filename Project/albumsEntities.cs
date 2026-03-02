@@ -42,7 +42,11 @@ namespace albumsEntities
     public int? Bytes { get; set; }
 }
 
-
+public class TrackEditModel
+{
+    public int TrackId { get; set; }
+    public string Name { get; set; } = string.Empty;
+}
 
 
 };
