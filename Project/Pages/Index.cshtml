@@ -1,34 +1,30 @@
 @page
 @* dont forget to chage folder name pages view customers *@
-@model Project.Pages.ViewAlbums
+@model Project.Pages.IndexModel
 @* dont forget to change cutomer entities *@
 @using albumsEntities
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Application</title>
-</head>
-<body>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+    <a asp-page="/Insert">Add Album</a>
+
 
     <table border="1">
         <tr>
-            <th>Album ID</th>
+
             <th>Title</th>
-
-
+            <th>Artist Name</th>
         </tr>
-        @foreach (Album album in Model.Albums)
+
+        @foreach (var a in Model.Albums)
         {
             <tr>
-                <td>@album.AlbumID</td>
-                <td>@album.Title</td>
-
-
+                <td>@a.Title</td>
+                <td>@a.Artist.Name</td>
+                <td>
+                    <a asp-page="/ViewAlbumDetails" asp-route-AlbumID="@a.AlbumId">Details</a>
+                </td>
             </tr>
         }
-    </table>
-</body>
 
-</html>
+
+    </table>

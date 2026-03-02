@@ -1,0 +1,123 @@
+@* @page
+@model Project.Pages.Insert
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Album</title>
+</head>
+<body>
+    <h1>Insert Album Title</h1>
+
+    <form method="post">
+        @Html.AntiForgeryToken()
+      <label>Title:
+    <input type="text" name="tbxAlbumTitle" required />
+</label>
+
+        <p><input type="submit" value="Insert" /></p>
+    </form>
+</body>
+</html> *@
+@* @page
+@model Project.Pages.Insert
+
+<h1>Insert Album Title</h1>
+
+<form method="post">
+    @Html.AntiForgeryToken()
+
+    <label>Title:
+        <input type="text" name="tbxAlbumTitle" required />
+    </label>
+
+    <p><input type="submit" value="Insert" /></p>
+
+    @if (!ModelState.IsValid)
+    {
+        <p style="color:red">@ModelState[""].Errors.FirstOrDefault()?.ErrorMessage</p>
+    }
+</form> *@
+@* @page
+@model Project.Pages.Insert
+@using albumsEntities
+
+<h1>Insert Album</h1>
+
+<form method="post">
+    @Html.AntiForgeryToken()
+
+    <label>Album Title:
+        <input type="text" name="tbxAlbumTitle" required />
+    </label>
+    <br /><br />
+
+    <label>Artist:
+        <select name="ArtistId">
+            <option value="">-- Select Existing Artist --</option>
+            @foreach (var artist in Model.Artists)
+            {
+                <option value="@artist.ArtistId">@artist.Name</option>
+            }
+        </select>
+    </label>
+    <br /><br />
+
+    <label>Or New Artist Name:
+        <input type="text" name="tbxNewArtist" />
+    </label>
+    <br /><br />
+
+    <input type="submit" value="Insert Album" />
+</form>
+
+@if (!ModelState.IsValid)
+{
+    <p style="color:red">@ModelState[""].Errors.FirstOrDefault()?.ErrorMessage</p>
+} *@
+@page
+@model Project.Pages.Insert
+@using albumsEntities
+
+<h1>Insert Album and Track</h1>
+
+<form method="post">
+    @Html.AntiForgeryToken()
+
+    <!-- Album Section -->
+    <label>Album Title:
+        <input type="text" name="tbxAlbumTitle" required />
+    </label>
+    <br /><br />
+
+    <label>Artist:
+        <select name="ArtistId">
+            <option value="">-- Select Existing Artist --</option>
+            @foreach (var artist in Model.Artists)
+            {
+                <option value="@artist.ArtistId">@artist.Name</option>
+            }
+        </select>
+    </label>
+    <br /><br />
+
+    <label>Or New Artist Name:
+        <input type="text" name="tbxNewArtist" />
+    </label>
+    <br /><br />
+
+    <!-- Track Section -->
+    <label>Track Name (optional):
+        <input type="text" name="tbxTrackName" />
+    </label>
+    <br /><br />
+
+    <input type="submit" value="Insert Album and Track" />
+</form>
+
+@if (!ModelState.IsValid)
+{
+    <p style="color:red">@ModelState[""].Errors.FirstOrDefault()?.ErrorMessage</p>
+}

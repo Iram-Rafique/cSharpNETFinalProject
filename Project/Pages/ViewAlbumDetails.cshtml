@@ -1,0 +1,48 @@
+@page "{AlbumID:int}"
+@model Project.Pages.ViewAlbumDetailsModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Album Details</title>
+</head>
+<body>
+    @* <h1>Album Details Page</h1>
+    <p>Album ID: @Model.AlbumID</p>
+    <p>Album Title: @Model.Title</p> *@
+
+
+
+
+<h1>Album Details</h1>
+
+@if (Model.Album == null)
+{
+    <p>No album found.</p>
+}
+else
+{
+    <p><strong>Album:</strong> @Model.Album.Title</p>
+    <p><strong>Artist:</strong> @Model.Album.Artist.Name</p>
+
+    <h2>Tracks</h2>
+
+    <table border="1">
+        <tr>
+            <th>Track Name</th>
+        
+        </tr>
+
+        @foreach (var t in Model.Tracks)
+        {
+            <tr>
+                <td>@t.Name</td>
+          
+            </tr>
+        }
+    </table>
+}
+
+
+</body>
+</html>
