@@ -82,7 +82,7 @@ namespace Project.Pages
                         .Select(t => new TrackEditModel
                         {
                             TrackId = t.TrackId,
-                            Name = t.Name
+                            Name = t.Name!
                         })
                         .ToList();
 

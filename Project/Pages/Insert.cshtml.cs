@@ -186,8 +186,8 @@ namespace Project.Pages
 
 public IActionResult OnPost()
 {
-  string albumTitle = Request.Form["tbxAlbumTitle"] ;
-string artistName = Request.Form["tbxArtist"] ;
+  string albumTitle = Request.Form["tbxAlbumTitle"]! ;
+string artistName = Request.Form["tbxArtist"]! ;
     var trackNames = Request.Form["tbxTrackNames"].ToArray(); // multiple tracks
 
     if (string.IsNullOrWhiteSpace(albumTitle))
@@ -207,7 +207,7 @@ string artistName = Request.Form["tbxArtist"] ;
     using (var db = new chinookDb())
     {
         // Check if artist exists
-        var artist = db.Artists.FirstOrDefault(a => a.Name.ToLower() == artistName.ToLower());
+        var artist = db.Artists.FirstOrDefault(a => a.Name!.ToLower() == artistName.ToLower());
         if (artist == null)
         {
             artist = new Artist { Name = artistName };

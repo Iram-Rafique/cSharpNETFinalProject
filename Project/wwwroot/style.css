@@ -83,3 +83,50 @@ a {
 a:hover {
     background-color: #2980b9;
 }
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    table, .track-table {
+        font-size: 14px;
+    }
+
+    .album-card {
+        padding: 12px 15px;
+        margin: 15px 0;
+    }
+
+    a {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    table, .track-table {
+        font-size: 12px;
+    }
+
+    .album-card {
+        padding: 10px 12px;
+        margin: 10px 0;
+    }
+
+    a {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+}
