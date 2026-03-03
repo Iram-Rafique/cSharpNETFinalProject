@@ -52,7 +52,7 @@
     <label>Album Title:
         <input type="text" name="tbxAlbumTitle" required />
     </label>
-    <br /><br />
+ <br />
 
     <label>Artist:
         <select name="ArtistId">
@@ -63,12 +63,12 @@
             }
         </select>
     </label>
-    <br /><br />
+ <br />
 
     <label>Or New Artist Name:
         <input type="text" name="tbxNewArtist" />
     </label>
-    <br /><br />
+ <br />
 
     <input type="submit" value="Insert Album" />
 </form>
@@ -80,43 +80,50 @@
 @page
 @model Project.Pages.InsertModel
 @using albumsEntities
-
+@{
+    Layout = "_Layout";
+}
 <h1>Insert Album and Tracks</h1>
 
-<form method="post">
-    @Html.AntiForgeryToken()
+<div class="album-card">
+    <form method="post">
+        @Html.AntiForgeryToken()
 
-    <!-- album Section -->
-    <label>Album Title:
-        <input type="text" name="tbxAlbumTitle" required />
-    </label>
-    <br /><br />
+        <!-- Album Section -->
+        <label for="">Album Title:
+        <input type="text" name="tbxAlbumTitle" placeholder="Album Title" required class="form-input"/></label>
+     
 
-    <!-- artist Section -->
-    <label>Artist:
-        <input list="artists" name="tbxArtist" placeholder="Select or type artist" />
+        <!-- Artist Section -->
+        <label for="">Artist Name:
+        <input list="artists" name="tbxArtist" placeholder="Artist" class="form-input"/></label>
         <datalist id="artists">
             @foreach (var artist in Model.Artists)
             {
                 <option value="@artist.Name">@artist.Name</option>
             }
         </datalist>
-    </label>
-    <br /><br />
+     
 
-    <!-- tracks Section -->
-    <div id="tracks-container">
-        <label>Track Name:
-            <input type="text" name="tbxTrackNames" />
-        </label>
-    </div>
-    <br />
-    <button type="button" onclick="addTrack()">Add Another Track</button>
-    <br /><br />
+        <!-- Tracks Section -->
+        <div id="tracks-container">
+            <label for="">Track Name:
+            <input type="text" name="tbxTrackNames" placeholder="Track Name" class="form-input"/>
+            </label>
+        </div>
+     
+        <button type="button" class="btn addbtn" onclick="addTrack()">Add Another Track</button>
+  
 
-    <input type="submit" value="Insert Album and Tracks" />
-</form>
-   <a href="/Index">Back to Albums</a>
+        <input type="submit" value="Save" class="btn"/>
+           <!-- Cancel button inside form -->
+    <button type="button" class="btn" onclick="window.location.href='/Index'">Cancel</button>
+    </form>
+  
+</div>
+
+
+
 <script>
 function addTrack() {
     const container = document.getElementById('tracks-container');
@@ -126,18 +133,21 @@ function addTrack() {
     input.type = 'text';
     input.name = 'tbxTrackNames';
     input.placeholder = 'Track Name';
+    input.className = 'form-input';
 
     // Create delete button
     const deleteBtn = document.createElement('button');
     deleteBtn.type = 'button';
     deleteBtn.textContent = 'Delete';
+    deleteBtn.className = 'btn btn-delete';
     deleteBtn.onclick = () => {
         container.removeChild(input);
         container.removeChild(deleteBtn);
+        container.removeChild(document.createElement('br'));
     };
 
-    // Add to container
-    container.appendChild(document.createElement('br'));
+    const br = document.createElement('br');
+    container.appendChild(br);
     container.appendChild(input);
     container.appendChild(deleteBtn);
 }
