@@ -65,7 +65,8 @@ namespace Project.Pages
 
         [BindProperty]
         public List<TrackEditModel> Tracks { get; set; } = new();
-
+[BindProperty]
+public string ArtistName { get; set; } = string.Empty;
         public List<Artist> Artists { get; set; } = new();
 
         // Load album and tracks
@@ -90,36 +91,55 @@ namespace Project.Pages
         }
 
         // Save album and tracks
-        public IActionResult OnPost()
+      public IActionResult OnPost()
+{
+    if (Album == null)
+        return BadRequest("Album data missing!");
+
+    var albumFromDb = db.Albums
+                        .SingleOrDefault(a => a.AlbumId == Album.AlbumId);
+
+    if (albumFromDb == null)
+        return NotFound();
+
+    // ===== FIXED ARTIST LOGIC =====
+
+    if (!string.IsNullOrWhiteSpace(ArtistName))
+    {
+        // Check if artist already exists
+        var existingArtist = db.Artists
+                               .SingleOrDefault(a => a.Name == ArtistName);
+
+        if (existingArtist == null)
         {
-            if (Album == null)
-                return BadRequest("Album data missing!");
-
-            // Update album
-            var albumFromDb = db.Albums.SingleOrDefault(a => a.AlbumId == Album.AlbumId);
-            if (albumFromDb == null)
-                return NotFound();
-
-            albumFromDb.Title = Album.Title;
-            albumFromDb.ArtistId = Album.ArtistId;
-
-            // Update tracks
-            foreach (var track in Tracks)
+            // Create new artist
+            existingArtist = new Artist
             {
-                var dbTrack = db.Tracks.SingleOrDefault(t => t.TrackId == track.TrackId);
-                if (dbTrack != null)
-                    dbTrack.Name = track.Name;
-            }
+                Name = ArtistName
+            };
 
-            db.SaveChanges();
-            return Redirect("~/Index");
+            db.Artists.Add(existingArtist);
+            db.SaveChanges(); // Save to generate ArtistId
         }
 
-        // Simple track model for binding
-        public class TrackEditModel
-        {
-            public int TrackId { get; set; }
-            public string Name { get; set; } = string.Empty;
-        }
+        albumFromDb.ArtistId = existingArtist.ArtistId;
+    }
+
+    // ===== UPDATE ALBUM TITLE =====
+    albumFromDb.Title = Album.Title;
+
+    // ===== UPDATE TRACKS =====
+    foreach (var track in Tracks)
+    {
+        var dbTrack = db.Tracks
+                        .SingleOrDefault(t => t.TrackId == track.TrackId);
+
+        if (dbTrack != null)
+            dbTrack.Name = track.Name;
+    }
+
+    db.SaveChanges();
+    return Redirect("~/Index");
+}
     }
 }

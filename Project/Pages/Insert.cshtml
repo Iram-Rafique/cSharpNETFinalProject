@@ -5,7 +5,7 @@
 @{
     Layout = "_Layout";
 }
-<h1>Insert Album and Tracks</h1>
+<h2>Insert Album, Artist and Tracks</h2>
 
 <div class="album-card">
     <form method="post">
@@ -18,7 +18,7 @@
 
         <!-- Artist Section -->
         <label for="">Artist Name:
-        <input list="artists" name="tbxArtist" placeholder="Artist" class="form-input"/></label>
+        <input list="artists" name="tbxArtist" placeholder="Artist"  required class="form-input"/></label>
         <datalist id="artists">
             @foreach (var artist in Model.Artists)
             {

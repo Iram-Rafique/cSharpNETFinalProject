@@ -1,45 +1,10 @@
- @* @page "{AlbumID:int}"
-@model Project.Pages.UpdateModel
-
-<h1>Update Album</h1>
-
-@if (Model.Album == null)
-{
-    <p>Album not found.</p>
-}
-else
-{
-    <form method="post">
-        @Html.AntiForgeryToken()
-        <input type="hidden" name="AlbumId" value="@Model.Album.AlbumId" />
-
-        <div>
-            <label>Title:</label>
-            <input type="text" name="Title" value="@Model.Album.Title" required />
-        </div>
-
-        <div>
-            <label>Artist Name:</label>
-            <select name="ArtistId" required>
-                @foreach (var artist in Model.Artists)
-                {
-                    <option value="@artist.ArtistId" 
-                        @(artist.ArtistId == Model.Album.ArtistId ? "selected" : "")>
-                        @artist.Name
-                    </option>
-                }
-            </select>
-        </div>
-
-        <button type="submit">Update</button>
-        <a asp-page="/Index"><button type="button">Cancel</button></a>
-    </form>
-}  *@
-
 @page "{id:int}"
 @model Project.Pages.UpdateModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
+@{
+    Layout = "_Layout";
+}
+<div class="update-page">
 
     <h1>Update Album</h1>
 
@@ -49,42 +14,54 @@ else
     }
     else
     {
-        <form method="post">
-             @Html.AntiForgeryToken()
-            <input type="hidden" asp-for="Album.AlbumId" />
+        <div class="update-card">
 
-            <div>
-                Album Title:
-                <input asp-for="Album.Title" required />
-            </div>
+            <form method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="Album.AlbumId" />
 
-            <div>
-                Artist:
-                <select asp-for="Album.ArtistId" required>
-                    @foreach (var artist in Model.Artists)
-                    {
-                        <option value="@artist.ArtistId">@artist.Name</option>
-                    }
-                </select>
-            </div>
+                <div class="form-group">
+                    <label>Album Title:</label>
+                    <input asp-for="Album.Title" class="form-input" required />
+                </div>
 
-            <h3>Tracks</h3>
-            <table border="1" style="border-collapse:collapse; width:50%;">
-                <tr>
-                    <th>Track Name</th>
-                </tr>
-                @for (int i = 0; i < Model.Tracks.Count; i++)
-                {
+                <div class="form-group">
+                    <label>Artist:</label>
+                    <input list="artistList" name="ArtistName" class="form-input" required />
+
+                    <datalist id="artistList">
+                        @foreach (var artist in Model.Artists)
+                        {
+                            <option value="@artist.Name"></option>
+                        }
+                    </datalist>
+                </div>
+
+                <h3>Tracks</h3>
+
+                <table class="update-track-table">
                     <tr>
-                        <td>
-                            <input type="hidden" asp-for="Tracks[i].TrackId" />
-                            <input type="text" asp-for="Tracks[i].Name" required />
-                        </td>
+                        <th>Track Name</th>
                     </tr>
-                }
-            </table>
+                    @for (int i = 0; i < Model.Tracks.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                <input type="hidden" asp-for="Tracks[i].TrackId" />
+                                <input type="text" asp-for="Tracks[i].Name" class="form-input" required />
+                            </td>
+                        </tr>
+                    }
+                </table>
 
-            <button type="submit">Save All</button>
-            <a asp-page="/Index"><button type="button">Cancel</button></a>
-        </form>
+                <div class="button-group">
+                    <button type="submit" class="btn">Save All</button>
+                    <a asp-page="/Index" class="btn cancel-btn">Cancel</a>
+                </div>
+
+            </form>
+
+        </div>
     }
+
+</div>

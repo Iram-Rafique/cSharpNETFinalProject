@@ -260,3 +260,63 @@ label {
         font-size: 12px;
     }
 }
+/* ================= Update Page Styles ================= */
+
+.update-page {
+    margin: 20px;
+}
+
+.update-page h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.update-page h3 {
+    margin-top: 25px;
+    color: #2c3e50;
+}
+
+.update-page .update-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Form Groups */
+.update-page .form-group {
+    margin-bottom: 15px;
+}
+
+/* Track Table */
+.update-page .update-track-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: white;
+}
+
+.update-page .update-track-table th {
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.update-page .update-track-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.update-page .update-track-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Buttons */
+.update-page .button-group {
+    margin-top: 20px;
+}
+
+.update-page .cancel-btn {
+    margin-left: 10px;
+}
