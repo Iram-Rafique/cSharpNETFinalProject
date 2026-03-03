@@ -43,3 +43,42 @@ td {
 tr:hover {
     background-color: #f1f1f1;
 }
+
+/* view page  */
+/* Album info card */
+h2{
+    font-size: 16px;
+  
+}
+.album-card {
+    background-color: white;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Track table improvements */
+.track-table th, .track-table td {
+    padding: 12px 15px;
+}
+
+.track-table tr:hover {
+    background-color: #e8f0fe; /* softer hover than your main table */
+}
+
+/* Back button styling matches links */
+a {
+    text-decoration: none;
+    padding: 6px 12px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+a:hover {
+    background-color: #2980b9;
+}

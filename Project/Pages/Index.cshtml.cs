@@ -16,7 +16,7 @@ namespace Project.Pages
  
     public class IndexModel : PageModel
     {
-        public string? Heading { get; set; }
+  
         // CLASS AND TABLE NAME
         public List<Album> Albums { get; set; } = new List<Album>();
 

@@ -1,20 +1,11 @@
-@page "{AlbumID:int}"
+@* route pram *@
+@page "{AlbumID:int}"   
 @model Project.Pages.ViewAlbumDetailsModel
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Album Details</title>
-</head>
-<body>
-    @* <h1>Album Details Page</h1>
-    <p>Album ID: @Model.AlbumID</p>
-    <p>Album Title: @Model.Title</p> *@
+@{
+    Layout = "_Layout";
+}
 
-
-
-
-<h1>Album Details</h1>
+<h2>Album Details</h2>
 
 @if (Model.Album == null)
 {
@@ -22,27 +13,41 @@
 }
 else
 {
-    <p><strong>Album:</strong> @Model.Album.Title</p>
-    <p><strong>Artist:</strong> @Model.Album.Artist.Name</p>
-
+    <div class="album-card">
+        <p>
+            <strong>Title:</strong> @Model.Album.Title
+        </p>
+        <p>
+            <strong>Artist:</strong> @Model.Album.Artist.Name
+        </p>
+    </div>
+@* tracks *@
     <h2>Tracks</h2>
 
-    <table border="1">
-        <tr>
-            <th>Track Name</th>
-        
-        </tr>
-
-        @foreach (var t in Model.Tracks)
-        {
-            <tr>
-                <td>@t.Name</td>
-          
-            </tr>
-        }
-    </table>
+    @if (Model.Tracks == null || !Model.Tracks.Any())
+    {
+        <p>No tracks available for this album.</p>
+    }
+    else
+    {
+        <table class="track-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Track Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Tracks.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>@Model.Tracks[i].Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        //back to hom page
+        <a href="/Index">Back to Albums</a>
+    }
 }
-
-
-</body>
-</html>

@@ -11,9 +11,10 @@ namespace Project.Pages
 {
     public class ViewAlbumDetailsModel : PageModel
     {
+        // binds AlbumId from the route (URL parameter)
         [BindProperty(SupportsGet = true)]
         public int AlbumId { get; set; }
-
+        //  holds the selected album 
         public Album? Album { get; set; }
         public List<Track> Tracks { get; set; } = new();
 
@@ -25,6 +26,7 @@ namespace Project.Pages
             {
                 Album = db.Albums
                           .Include(a => a.Artist)
+                        //   returns the album if found, otherwise returns null.
                           .FirstOrDefault(a => a.AlbumId == AlbumId);
 
                 Tracks = db.Tracks
@@ -35,20 +37,3 @@ namespace Project.Pages
     }
 }
 
-
-// namespace Project.Pages
-// {
-//     public class ViewAlbumDetailsModel : PageModel
-//     {
-//         [BindProperty(SupportsGet = true)]
-//         public int AlbumID { get; set; }
-//         public String? Title { get; set; }
-
-
-//         public void OnGet(int AlbumID)
-//         {
-//             this.AlbumID = AlbumID; // stores route parameter
-            
-//         }
-//     }
-// }
