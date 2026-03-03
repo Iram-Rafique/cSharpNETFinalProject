@@ -10,26 +10,26 @@ using albumsContext;
 
 
 
-// this must be the folder name which is our web name
+
 namespace Project.Pages
 {
-    // HERE WE NEED crud operation name 
-    public class IndexModel: PageModel
+ 
+    public class IndexModel : PageModel
     {
         public string? Heading { get; set; }
-        //CHAGE CLASS AND TABLE NAME
+        // CLASS AND TABLE NAME
         public List<Album> Albums { get; set; } = new List<Album>();
 
         public void OnGet()
         {
-            // Create and dispose DbContext safely
-    using (var db = new chinookDb())
-    {
-        // Fetch albums with their artists and store in the public property
-        Albums = db.Albums
-                   .Include(a => a.Artist)
-                   .ToList();
-    }
+            // Create DbContext
+            using (var db = new chinookDb())
+            {
+                // fetch albums with their artists 
+                Albums = db.Albums
+                           .Include(a => a.Artist)
+                           .ToList();
+            }
 
         }
 

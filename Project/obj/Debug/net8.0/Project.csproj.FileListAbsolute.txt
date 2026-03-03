@@ -56,3 +56,4 @@ C:\Users\ladyb\OneDrive\Desktop\Coursework2\Project\bin\Debug\net8.0\runtimes\wi
 C:\Users\ladyb\OneDrive\Desktop\Coursework2\Project\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\ladyb\OneDrive\Desktop\Coursework2\Project\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\ladyb\OneDrive\Desktop\Coursework2\Project\obj\Debug\net8.0\Project.csproj.Up2Date
+C:\Users\ladyb\OneDrive\Desktop\Coursework2\Project\obj\Debug\net8.0\Project.sourcelink.json

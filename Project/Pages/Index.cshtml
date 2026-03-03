@@ -1,9 +1,15 @@
 @page
-@* dont forget to chage folder name pages view customers *@
 @model Project.Pages.IndexModel
-@* dont forget to change cutomer entities *@
 @using albumsEntities
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Album</title>
+</head>
+<body>
 
     <a asp-page="/Insert">Add Album</a>
 
@@ -21,16 +27,22 @@
                 <td>@a.Title</td>
                 <td>@a.Artist.Name</td>
                 <td>
+                    @* details button *@
                     <a asp-page="/ViewAlbumDetails" asp-route-AlbumID="@a.AlbumId">Details</a>
                 </td>
-                 <td>
+                @* delete button *@
+                <td>
                     <a asp-page="/Delete" asp-route-AlbumID="@a.AlbumId">Delete</a>
                 </td>
+                @* update button *@
                 <td>
-<a asp-page="/Update" asp-route-id="@a.AlbumId">Update</a>
-</td>
+                    <a asp-page="/Update" asp-route-id="@a.AlbumId">Update</a>
+                </td>
             </tr>
         }
 
 
     </table>
+</body>
+
+</html>
