@@ -2,47 +2,40 @@
 @model Project.Pages.IndexModel
 @using albumsEntities
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insert Album</title>
-</head>
-<body>
+@* html and css  *@
+@{
+    Layout = "_Layout";
+}
 
-    <a asp-page="/Insert">Add Album</a>
+<a class="btn" asp-page="/Insert">Add Album</a>
 
-
-    <table border="1">
+<table>
+    <thead>
         <tr>
-
             <th>Title</th>
             <th>Artist Name</th>
+            <th>Details</th>
+            <th>Delete</th>
+            <th>Update</th>
         </tr>
-
+    </thead>
+    <tbody>
         @foreach (var a in Model.Albums)
         {
             <tr>
                 <td>@a.Title</td>
                 <td>@a.Artist.Name</td>
+                @* 3 links  *@
                 <td>
-                    @* details button *@
                     <a asp-page="/ViewAlbumDetails" asp-route-AlbumID="@a.AlbumId">Details</a>
                 </td>
-                @* delete button *@
                 <td>
                     <a asp-page="/Delete" asp-route-AlbumID="@a.AlbumId">Delete</a>
                 </td>
-                @* update button *@
                 <td>
                     <a asp-page="/Update" asp-route-id="@a.AlbumId">Update</a>
                 </td>
             </tr>
         }
-
-
-    </table>
-</body>
-
-</html>
+    </tbody>
+</table>

@@ -23,13 +23,14 @@ namespace Project.Pages
         public void OnGet()
         {
             // Create DbContext
-            using (var db = new chinookDb())
-            {
-                // fetch albums with their artists 
-                Albums = db.Albums
-                           .Include(a => a.Artist)
-                           .ToList();
-            }
+           using (var db = new chinookDb())
+{
+    Albums = db.Albums
+               .Include(a => a.Artist)
+               .OrderBy(a => a.Artist.Name)   //  sort by artist
+               .ThenBy(a => a.Title)          // then sort albums inside each artist
+               .ToList();
+}
 
         }
 
