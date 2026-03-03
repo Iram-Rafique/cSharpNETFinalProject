@@ -1,10 +1,6 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\wwwroot\\css",
-      "PackagePath": "staticwebassets"
-    },
-    {
       "Id": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\wwwroot\\style.css",
       "PackagePath": "staticwebassets\\style.css"
     },

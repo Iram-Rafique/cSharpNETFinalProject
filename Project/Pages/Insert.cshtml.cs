@@ -184,69 +184,61 @@ namespace Project.Pages
             }
         }
 
-        public IActionResult OnPost()
+public IActionResult OnPost()
+{
+    string albumTitle = Request.Form["tbxAlbumTitle"];
+    string artistName = Request.Form["tbxArtist"];
+    string trackName = Request.Form["tbxTrackName"];
+
+    if (string.IsNullOrWhiteSpace(albumTitle))
+    {
+        ModelState.AddModelError("", "Album title cannot be empty");
+        OnGet();
+        return Page();
+    }
+
+    if (string.IsNullOrWhiteSpace(artistName))
+    {
+        ModelState.AddModelError("", "Please select or enter an artist");
+        OnGet();
+        return Page();
+    }
+
+    using (var db = new chinookDb())
+    {
+        // Check if artist exists
+        var artist = db.Artists.FirstOrDefault(a => a.Name.ToLower() == artistName.ToLower());
+        if (artist == null)
         {
-            string albumTitle = Request.Form["tbxAlbumTitle"];
-            string selectedArtistId = Request.Form["ArtistId"];
-            string newArtistName = Request.Form["tbxNewArtist"];
-            string trackName = Request.Form["tbxTrackName"]; // optional
+            artist = new Artist { Name = artistName };
+            db.Artists.Add(artist);
+            db.SaveChanges();
+        }
 
-            if (string.IsNullOrWhiteSpace(albumTitle))
+        // Insert Album
+        var album = new Album
+        {
+            Title = albumTitle,
+            ArtistId = artist.ArtistId
+        };
+        db.Albums.Add(album);
+        db.SaveChanges();
+
+        // Optionally insert Track
+        if (!string.IsNullOrWhiteSpace(trackName))
+        {
+            var track = new Track
             {
-                ModelState.AddModelError("", "Album title cannot be empty");
-                OnGet();
-                return Page();
-            }
-
-            using (var db = new chinookDb())
-            {
-                int artistId;
-
-                // Handle Artist selection / creation
-                if (!string.IsNullOrWhiteSpace(newArtistName))
-                {
-                    var artist = new Artist { Name = newArtistName };
-                    db.Artists.Add(artist);
-                    db.SaveChanges();
-                    artistId = artist.ArtistId;
-                }
-                else if (!string.IsNullOrWhiteSpace(selectedArtistId))
-                {
-                    artistId = int.Parse(selectedArtistId);
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Please select or enter an artist");
-                    OnGet();
-                    return Page();
-                }
-
-                // Insert Album
-                var album = new Album
-                {
-                    Title = albumTitle,
-                    ArtistId = artistId
-                };
-                db.Albums.Add(album);
-                db.SaveChanges();
-
-                // Optionally insert Track if name provided
-                if (!string.IsNullOrWhiteSpace(trackName))
-                {
-                    var track = new Track
-                    {
-                        Name = trackName,
-                        AlbumId = album.AlbumId,    // associate with the new album
-                        MediaTypeId = 1,            // default required value
-                        Milliseconds = 1000,        // default required value
-                        UnitPrice = 0.99m           // default required value
-                    };
-                    db.Tracks.Add(track);
-                    db.SaveChanges();
-                }
-            }
-
-            return RedirectToPage("/Index");
+                Name = trackName,
+                AlbumId = album.AlbumId,
+                MediaTypeId = 1,
+                Milliseconds = 1000,
+                UnitPrice = 0.99m
+            };
+            db.Tracks.Add(track);
+            db.SaveChanges();
         }
     }
-}
+
+    return RedirectToPage("/Index");
+}}}

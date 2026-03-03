@@ -45,7 +45,8 @@ tr:hover {
 }
 
 /* view page  */
-/* Album info card */
+
+/* album info card */
 h2{
     font-size: 16px;
   
@@ -58,16 +59,16 @@ h2{
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* Track table improvements */
+/* Track table  */
 .track-table th, .track-table td {
     padding: 12px 15px;
 }
 
 .track-table tr:hover {
-    background-color: #e8f0fe; /* softer hover than your main table */
+    background-color: #e8f0fe; 
 }
 
-/* Back button styling matches links */
+/* back button styling matches links */
 a {
     text-decoration: none;
     padding: 6px 12px;

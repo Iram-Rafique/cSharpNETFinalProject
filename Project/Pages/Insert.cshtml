@@ -92,7 +92,7 @@
     </label>
     <br /><br />
 
-    <label>Artist:
+    @* <label>Artist:
         <select name="ArtistId">
             <option value="">-- Select Existing Artist --</option>
             @foreach (var artist in Model.Artists)
@@ -100,13 +100,23 @@
                 <option value="@artist.ArtistId">@artist.Name</option>
             }
         </select>
+    </label> *@
+     <!-- Artist Section: Combined dropdown + input -->
+    <label>Artist:
+        <input list="artists" name="tbxArtist" placeholder="Select or type artist" />
+        <datalist id="artists">
+            @foreach (var artist in Model.Artists)
+            {
+                <option value="@artist.Name">@artist.Name</option>
+            }
+        </datalist>
     </label>
     <br /><br />
 
-    <label>Or New Artist Name:
+    @* <label>Or New Artist Name:
         <input type="text" name="tbxNewArtist" />
     </label>
-    <br /><br />
+    <br /><br /> *@
 
     <!-- Track Section -->
     <label>Track Name (optional):
