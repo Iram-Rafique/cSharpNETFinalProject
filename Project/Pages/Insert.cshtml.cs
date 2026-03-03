@@ -172,7 +172,7 @@ using System.Linq;
 
 namespace Project.Pages
 {
-    public class Insert : PageModel
+    public class InsertModel : PageModel
     {
         public List<Artist> Artists { get; set; } = new List<Artist>();
 
@@ -186,9 +186,9 @@ namespace Project.Pages
 
 public IActionResult OnPost()
 {
-    string albumTitle = Request.Form["tbxAlbumTitle"];
-    string artistName = Request.Form["tbxArtist"];
-    string trackName = Request.Form["tbxTrackName"];
+  string albumTitle = Request.Form["tbxAlbumTitle"] ;
+string artistName = Request.Form["tbxArtist"] ;
+    var trackNames = Request.Form["tbxTrackNames"].ToArray(); // multiple tracks
 
     if (string.IsNullOrWhiteSpace(albumTitle))
     {
@@ -224,20 +224,23 @@ public IActionResult OnPost()
         db.Albums.Add(album);
         db.SaveChanges();
 
-        // Optionally insert Track
-        if (!string.IsNullOrWhiteSpace(trackName))
+        // Insert multiple tracks
+        foreach (var trackName in trackNames)
         {
-            var track = new Track
+            if (!string.IsNullOrWhiteSpace(trackName))
             {
-                Name = trackName,
-                AlbumId = album.AlbumId,
-                MediaTypeId = 1,
-                Milliseconds = 1000,
-                UnitPrice = 0.99m
-            };
-            db.Tracks.Add(track);
-            db.SaveChanges();
+                var track = new Track
+                {
+                    Name = trackName,
+                    AlbumId = album.AlbumId,
+                    MediaTypeId = 1,
+                    Milliseconds = 1000,
+                    UnitPrice = 0.99m
+                };
+                db.Tracks.Add(track);
+            }
         }
+        db.SaveChanges();
     }
 
     return RedirectToPage("/Index");
