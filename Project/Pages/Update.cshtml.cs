@@ -1,52 +1,4 @@
-// using Microsoft.AspNetCore.Mvc;
-// using Microsoft.AspNetCore.Mvc.RazorPages;
-// using Microsoft.EntityFrameworkCore;
-// using albumsEntities;
-// using albumsContext;
-// using System.Collections.Generic;
-// using System.Linq;
 
-// namespace Project.Pages
-// {
-//     public class UpdateModel : PageModel
-//     {
-//         [BindProperty(SupportsGet = true)]
-//         public int AlbumID { get; set; }
-
-//         [BindProperty]
-//         public Album? Album { get; set; }
-
-//         public List<Artist> Artists { get; set; } = new();
-
-//         public void OnGet(int AlbumID)
-//         {
-//             this.AlbumID = AlbumID;
-
-//             using (var db = new chinookDb())
-//             {
-//                 Album = db.Albums.FirstOrDefault(a => a.AlbumId == AlbumID);
-//                 Artists = db.Artists.ToList();
-//             }
-//         }
-
-//         public IActionResult OnPost(int AlbumID, string Title, int ArtistId)
-//         {
-//             using (var db = new chinookDb())
-//             {
-//                 var album = db.Albums.FirstOrDefault(a => a.AlbumId == AlbumID);
-//                 if (album != null)
-//                 {
-//                     album.Title = Title;
-//                     album.ArtistId = ArtistId;
-
-//                     db.SaveChanges();
-//                 }
-//             }
-
-//             return RedirectToPage("/Index");
-//         }
-//     }
-// }
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -65,8 +17,8 @@ namespace Project.Pages
 
         [BindProperty]
         public List<TrackEditModel> Tracks { get; set; } = new();
-[BindProperty]
-public string ArtistName { get; set; } = string.Empty;
+        [BindProperty]
+        public string ArtistName { get; set; } = string.Empty;
         public List<Artist> Artists { get; set; } = new();
 
         // Load album and tracks
@@ -91,55 +43,55 @@ public string ArtistName { get; set; } = string.Empty;
         }
 
         // Save album and tracks
-      public IActionResult OnPost()
-{
-    if (Album == null)
-        return BadRequest("Album data missing!");
-
-    var albumFromDb = db.Albums
-                        .SingleOrDefault(a => a.AlbumId == Album.AlbumId);
-
-    if (albumFromDb == null)
-        return NotFound();
-
-    // ===== FIXED ARTIST LOGIC =====
-
-    if (!string.IsNullOrWhiteSpace(ArtistName))
-    {
-        // Check if artist already exists
-        var existingArtist = db.Artists
-                               .SingleOrDefault(a => a.Name == ArtistName);
-
-        if (existingArtist == null)
+        public IActionResult OnPost()
         {
-            // Create new artist
-            existingArtist = new Artist
+            if (Album == null)
+                return BadRequest("Album data missing!");
+
+            var albumFromDb = db.Albums
+                                .SingleOrDefault(a => a.AlbumId == Album.AlbumId);
+
+            if (albumFromDb == null)
+                return NotFound();
+
+            // ===== FIXED ARTIST LOGIC =====
+
+            if (!string.IsNullOrWhiteSpace(ArtistName))
             {
-                Name = ArtistName
-            };
+                // Check if artist already exists
+                var existingArtist = db.Artists
+                                       .SingleOrDefault(a => a.Name == ArtistName);
 
-            db.Artists.Add(existingArtist);
-            db.SaveChanges(); // Save to generate ArtistId
+                if (existingArtist == null)
+                {
+                    // Create new artist
+                    existingArtist = new Artist
+                    {
+                        Name = ArtistName
+                    };
+
+                    db.Artists.Add(existingArtist);
+                    db.SaveChanges(); // Save to generate ArtistId
+                }
+
+                albumFromDb.ArtistId = existingArtist.ArtistId;
+            }
+
+            // ===== UPDATE ALBUM TITLE =====
+            albumFromDb.Title = Album.Title;
+
+            // ===== UPDATE TRACKS =====
+            foreach (var track in Tracks)
+            {
+                var dbTrack = db.Tracks
+                .SingleOrDefault(t => t.TrackId == track.TrackId);
+
+                if (dbTrack != null)
+                    dbTrack.Name = track.Name;
+            }
+
+            db.SaveChanges();
+            return Redirect("~/Index");
         }
-
-        albumFromDb.ArtistId = existingArtist.ArtistId;
-    }
-
-    // ===== UPDATE ALBUM TITLE =====
-    albumFromDb.Title = Album.Title;
-
-    // ===== UPDATE TRACKS =====
-    foreach (var track in Tracks)
-    {
-        var dbTrack = db.Tracks
-                        .SingleOrDefault(t => t.TrackId == track.TrackId);
-
-        if (dbTrack != null)
-            dbTrack.Name = track.Name;
-    }
-
-    db.SaveChanges();
-    return Redirect("~/Index");
-}
     }
 }

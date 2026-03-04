@@ -6,7 +6,7 @@
 }
 <div class="update-page">
 
-    <h1>Update Album</h1>
+    <h2>Update Album</h2>
 
     @if (Model.Album == null)
     {
@@ -53,7 +53,10 @@
                         </tr>
                     }
                 </table>
-
+@if (!Model.Tracks.Any())
+{
+    <p>No tracks found for this album.</p>
+}
                 <div class="button-group">
                     <button type="submit" class="btn">Save All</button>
                     <a asp-page="/Index" class="btn cancel-btn">Cancel</a>
