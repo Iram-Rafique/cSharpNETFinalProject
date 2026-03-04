@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "T96krXAIQ11p4KZUrKw/dO/lUBCA11/qEHM6k6EYTmY=",
+  "Hash": "/rfseuv5x3cI2d1uuNvtdBJl5frfEBywcSR4g8Yhi1s=",
   "Source": "Project",
   "BasePath": "_content/Project",
   "Mode": "Default",
@@ -16,6 +16,44 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\wwwroot\\js\\addTrack.js",
+      "SourceId": "Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\wwwroot\\",
+      "BasePath": "_content/Project",
+      "RelativePath": "js/addTrack.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\addTrack.js"
+    },
+    {
+      "Identity": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\wwwroot\\js\\updateAddTrack.js",
+      "SourceId": "Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\wwwroot\\",
+      "BasePath": "_content/Project",
+      "RelativePath": "js/updateAddTrack.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\updateAddTrack.js"
+    },
     {
       "Identity": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\wwwroot\\style.css",
       "SourceId": "Project",

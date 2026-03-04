@@ -15,7 +15,7 @@ namespace Project.Pages
 
         public Album? Album { get; set; }
         public List<Track> Tracks { get; set; } = new();
-
+        //first show all details on the page 
         public void OnGet(int AlbumID)
         {
             this.AlbumID = AlbumID;
@@ -31,7 +31,7 @@ namespace Project.Pages
                            .ToList();
             }
         }
-
+        //then delete
         public IActionResult OnPost(int AlbumID, string confirm)
         {
             if (confirm != "yes")
@@ -47,7 +47,7 @@ namespace Project.Pages
 
                 if (album != null)
                 {
-                    // Delete all tracks first (because of foreign key)
+                    // delete all tracks first (because of foreign key)
                     var tracks = db.Tracks.Where(t => t.AlbumId == AlbumID).ToList();
                     db.Tracks.RemoveRange(tracks);
 

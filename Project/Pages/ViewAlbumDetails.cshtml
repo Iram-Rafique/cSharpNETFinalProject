@@ -13,6 +13,7 @@
 }
 else
 {
+    @* show details *@
     <div class="album-card">
         <p>
             <strong>Title:</strong> @Model.Album.Title
@@ -21,7 +22,7 @@ else
             <strong>Artist:</strong> @Model.Album.Artist.Name
         </p>
     </div>
-@* tracks *@
+@* tracks  *@
     <h2>Tracks</h2>
 
     @if (Model.Tracks == null || !Model.Tracks.Any())

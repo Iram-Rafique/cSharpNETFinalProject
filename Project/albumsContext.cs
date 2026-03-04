@@ -27,10 +27,10 @@ using albumsEntities;
 
 namespace albumsContext
 {
-    // Database context for the Chinook database
+    // database context for the Chinook database
     public class chinookDb : DbContext
     {
-        // Parameterless constructor allows simple usage: new chinookDb()
+        // parameterless constructor allows simple usage: new chinookDb()
         public chinookDb() { }
 
         // DbSets representing tables in the database
@@ -48,20 +48,20 @@ namespace albumsContext
         }
 
         // Optional: configure relationships, constraints, etc.
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
+        // protected override void OnModelCreating(ModelBuilder modelBuilder)
+        // {
+        //     base.OnModelCreating(modelBuilder);
 
-            // Example: ensure Title in Album is required
-            modelBuilder.Entity<Album>()
-                .Property(a => a.Title)
-                .IsRequired();
+        //     //  ensure Title in Album is required
+        //     modelBuilder.Entity<Album>()
+        //         .Property(a => a.Title)
+        //         .IsRequired();
 
-            // Example: Artist-Album relationship
-            modelBuilder.Entity<Album>()
-                .HasOne(a => a.Artist)
-                .WithMany(ar => ar.Albums)
-                .HasForeignKey(a => a.ArtistId);
-        }
+        //     // Artist-Album relationship
+        //     modelBuilder.Entity<Album>()
+        //         .HasOne(a => a.Artist)
+        //         .WithMany(ar => ar.Albums)
+        //         .HasForeignKey(a => a.ArtistId);
+        // }
     }
 }

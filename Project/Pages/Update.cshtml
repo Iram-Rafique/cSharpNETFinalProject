@@ -14,8 +14,8 @@
     }
     else
     {
+        //title and artist name
         <div class="update-card">
-
             <form method="post">
                 @Html.AntiForgeryToken()
                 <input type="hidden" asp-for="Album.AlbumId" />
@@ -27,7 +27,7 @@
 
                 <div class="form-group">
                     <label>Artist:</label>
-                    <input list="artistList" name="ArtistName" class="form-input" required />
+                    <input list="artistList" asp-for="ArtistName" class="form-input" required />
 
                     <datalist id="artistList">
                         @foreach (var artist in Model.Artists)
@@ -36,7 +36,7 @@
                         }
                     </datalist>
                 </div>
-
+                @* //tracks *@
                 <h3>Tracks</h3>
 
                 <table class="update-track-table">
@@ -53,10 +53,16 @@
                         </tr>
                     }
                 </table>
-@if (!Model.Tracks.Any())
-{
-    <p>No tracks found for this album.</p>
-}
+                @if (!Model.Tracks.Any())
+                {
+                    <p>No tracks found for this album.</p>
+
+                }
+                @* new track container *@
+                <div id="new-tracks-container"></div>
+
+                <button type="button" class="btn addbtn" onclick="addTrack()">Add a Track</button>
+                @* add and delete btns *@
                 <div class="button-group">
                     <button type="submit" class="btn">Save All</button>
                     <a asp-page="/Index" class="btn cancel-btn">Cancel</a>

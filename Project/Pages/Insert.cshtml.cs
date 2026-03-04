@@ -26,23 +26,23 @@ public IActionResult OnPost()
 string artistName = Request.Form["tbxArtist"]! ;
     var trackNames = Request.Form["tbxTrackNames"].ToArray(); // multiple tracks
 
-    if (string.IsNullOrWhiteSpace(albumTitle))
-    {
-        ModelState.AddModelError("", "Album title cannot be empty");
-        OnGet();
-        return Page();
-    }
+    // if (string.IsNullOrWhiteSpace(albumTitle))
+    // {
+    //     ModelState.AddModelError("", "Album title cannot be empty");
+    //     OnGet();
+    //     return Page();
+    // }
 
-    if (string.IsNullOrWhiteSpace(artistName))
-    {
-        ModelState.AddModelError("", "Please select or enter an artist");
-        OnGet();
-        return Page();
-    }
+    // if (string.IsNullOrWhiteSpace(artistName))
+    // {
+    //     ModelState.AddModelError("", "Please select or enter an artist");
+    //     OnGet();
+    //     return Page();
+    // }
 
     using (var db = new chinookDb())
     {
-        // Check if artist exists
+        // check if artist exists
         var artist = db.Artists.FirstOrDefault(a => a.Name!.ToLower() == artistName.ToLower());
         if (artist == null)
         {
@@ -51,7 +51,7 @@ string artistName = Request.Form["tbxArtist"]! ;
             db.SaveChanges();
         }
 
-        // Insert Album
+        // insert Album
         var album = new Album
         {
             Title = albumTitle,
@@ -60,7 +60,7 @@ string artistName = Request.Form["tbxArtist"]! ;
         db.Albums.Add(album);
         db.SaveChanges();
 
-        // Insert multiple tracks
+        // insert multiple tracks
         foreach (var trackName in trackNames)
         {
             if (!string.IsNullOrWhiteSpace(trackName))

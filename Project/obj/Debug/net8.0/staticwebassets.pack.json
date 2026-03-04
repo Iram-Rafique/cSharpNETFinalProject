@@ -1,6 +1,14 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\wwwroot\\js\\addTrack.js",
+      "PackagePath": "staticwebassets\\js\\addTrack.js"
+    },
+    {
+      "Id": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\wwwroot\\js\\updateAddTrack.js",
+      "PackagePath": "staticwebassets\\js\\updateAddTrack.js"
+    },
+    {
       "Id": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\wwwroot\\style.css",
       "PackagePath": "staticwebassets\\style.css"
     },

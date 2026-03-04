@@ -11,12 +11,12 @@
     <form method="post">
         @Html.AntiForgeryToken()
 
-        <!-- Album Section -->
+        <!-- album Section -->
         <label for="">Album Title:
         <input type="text" name="tbxAlbumTitle" placeholder="Album Title" required class="form-input"/></label>
      
 
-        <!-- Artist Section -->
+        <!-- artist section -->
         <label for="">Artist Name:
         <input list="artists" name="tbxArtist" placeholder="Artist"  required class="form-input"/></label>
         <datalist id="artists">
@@ -27,50 +27,21 @@
         </datalist>
      
 
-        <!-- Tracks Section -->
+        <!-- tracks Section -->
         <div id="tracks-container">
             <label for="">Track Name:
             <input type="text" name="tbxTrackNames" placeholder="Track Name" class="form-input"/>
             </label>
         </div>
      
-        <button type="button" class="btn addbtn" onclick="addTrack()">Add Another Track</button>
+        <button type="button" class="btn addbtn" onclick="addTrackInsertbtn()">Add Another Track</button>
   
 
         <input type="submit" value="Save" class="btn"/>
-           <!-- Cancel button inside form -->
+           <!-- cancel button inside form -->
     <button type="button" class="btn" onclick="window.location.href='/Index'">Cancel</button>
     </form>
   
 </div>
 
 
-
-<script>
-function addTrack() {
-    const container = document.getElementById('tracks-container');
-
-    // Create input
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.name = 'tbxTrackNames';
-    input.placeholder = 'Track Name';
-    input.className = 'form-input';
-
-    // Create delete button
-    const deleteBtn = document.createElement('button');
-    deleteBtn.type = 'button';
-    deleteBtn.textContent = 'Delete';
-    deleteBtn.className = 'btn btn-delete';
-    deleteBtn.onclick = () => {
-        container.removeChild(input);
-        container.removeChild(deleteBtn);
-        container.removeChild(document.createElement('br'));
-    };
-
-    const br = document.createElement('br');
-    container.appendChild(br);
-    container.appendChild(input);
-    container.appendChild(deleteBtn);
-}
-</script>

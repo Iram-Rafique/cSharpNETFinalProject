@@ -11,7 +11,7 @@ namespace Project.Pages
 {
     public class ViewAlbumDetailsModel : PageModel
     {
-        // binds AlbumId from the route (URL parameter)
+        // binds AlbumId from the route (URL param)
         [BindProperty(SupportsGet = true)]
         public int AlbumId { get; set; }
         //  holds the selected album 
@@ -25,13 +25,13 @@ namespace Project.Pages
             using (var db = new chinookDb())
             {
                 Album = db.Albums
-                          .Include(a => a.Artist)
-                        //   returns the album if found, otherwise returns null.
-                          .FirstOrDefault(a => a.AlbumId == AlbumId);
+                .Include(a => a.Artist)
+                //   returns the album if found, otherwise returns null.
+                .FirstOrDefault(a => a.AlbumId == AlbumId);
 
                 Tracks = db.Tracks
-                           .Where(t => t.AlbumId == AlbumId)
-                           .ToList();
+                .Where(t => t.AlbumId == AlbumId)
+                .ToList();
             }
         }
     }

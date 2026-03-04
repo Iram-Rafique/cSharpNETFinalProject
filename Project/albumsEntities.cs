@@ -1,16 +1,19 @@
 using System;
 namespace albumsEntities
 {
-
+    // album
     public class Album
     {
         public Int32 AlbumId { get; set; }
         public string? Title { get; set; }
         public int ArtistId { get; set; }
+        // artist associated with this entity
         public Artist Artist { get; set; } = null!;
+        // list of tracks related to this entity
         public List<Track> Tracks { get; set; } = new();
 
     }
+    //artist
     public class Artist
     {
         public Int32 ArtistId { get; set; }
@@ -19,6 +22,8 @@ namespace albumsEntities
 
 
     }
+
+    //track 
     public class Track
     {
         public int TrackId { get; set; }
@@ -27,17 +32,17 @@ namespace albumsEntities
         public int AlbumId { get; set; }
         public Album Album { get; set; } = null!;
 
-        // Required by DB
+        // required by DB
         public int MediaTypeId { get; set; }
         public int Milliseconds { get; set; }
         public decimal UnitPrice { get; set; }
 
-        // to avoid foreignkey constrain
+        // to avoid foreignkey constraint
         public int? GenreId { get; set; }
         public string? Composer { get; set; }
         public int? Bytes { get; set; }
     }
-
+    //this is to update track
     public class TrackEditModel
     {
         public int TrackId { get; set; }
