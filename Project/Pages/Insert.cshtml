@@ -8,17 +8,26 @@
 <h2>Insert Album, Artist and Tracks</h2>
 
 <div class="album-card">
+    @if (!Model.ModelState.IsValid)
+{
+    <div class="validation-summary">
+        @foreach (var error in Model.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p class="text-error">@error.ErrorMessage</p>
+        }
+    </div>
+}
     <form method="post">
         @Html.AntiForgeryToken()
 
         <!-- album Section -->
         <label for="">Album Title:
-        <input type="text" name="tbxAlbumTitle" placeholder="Album Title" required class="form-input"/></label>
+        <input type="text" name="tbxAlbumTitle" placeholder="Album Title"  class="form-input"/></label>
      
 
         <!-- artist section -->
         <label for="">Artist Name:
-        <input list="artists" name="tbxArtist" placeholder="Artist"  required class="form-input"/></label>
+        <input list="artists" name="tbxArtist" placeholder="Artist"   class="form-input"/></label>
         <datalist id="artists">
             @foreach (var artist in Model.Artists)
             {

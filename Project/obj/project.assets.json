@@ -1184,11 +1184,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\Project.csproj",
+      "projectUniqueName": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\project\\Project.csproj",
       "projectName": "Project",
-      "projectPath": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\Project.csproj",
+      "projectPath": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\project\\Project.csproj",
       "packagesPath": "C:\\Users\\ladyb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\obj\\",
+      "outputPath": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ladyb\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1244,7 +1244,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "c:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

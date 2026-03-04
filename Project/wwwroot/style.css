@@ -448,3 +448,6 @@ label {
         text-align: center;
     }
 }
+.text-error{
+    color: #e74c3c;
+}
