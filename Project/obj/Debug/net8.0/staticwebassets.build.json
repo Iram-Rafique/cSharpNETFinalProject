@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/rfseuv5x3cI2d1uuNvtdBJl5frfEBywcSR4g8Yhi1s=",
+  "Hash": "axF52YhoypdUyTCQdqfBLdEFlKF2IMAGoypxdMf4dvg=",
   "Source": "Project",
   "BasePath": "_content/Project",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Project\\wwwroot",
       "Source": "Project",
-      "ContentRoot": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\project\\wwwroot\\",
       "BasePath": "_content/Project",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\wwwroot\\js\\addTrack.js",
+      "Identity": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\project\\wwwroot\\js\\addTrack.js",
       "SourceId": "Project",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\project\\wwwroot\\",
       "BasePath": "_content/Project",
       "RelativePath": "js/addTrack.js",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot\\js\\addTrack.js"
     },
     {
-      "Identity": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\wwwroot\\js\\updateAddTrack.js",
+      "Identity": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\project\\wwwroot\\js\\updateAddTrack.js",
       "SourceId": "Project",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\project\\wwwroot\\",
       "BasePath": "_content/Project",
       "RelativePath": "js/updateAddTrack.js",
       "AssetKind": "All",
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "wwwroot\\js\\updateAddTrack.js"
     },
     {
-      "Identity": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\wwwroot\\style.css",
+      "Identity": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\project\\wwwroot\\style.css",
       "SourceId": "Project",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\project\\wwwroot\\",
       "BasePath": "_content/Project",
       "RelativePath": "style.css",
       "AssetKind": "All",

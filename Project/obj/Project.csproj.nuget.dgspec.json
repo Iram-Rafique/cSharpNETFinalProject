@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\Project.csproj": {}
+    "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\project\\Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\Project.csproj": {
+    "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\project\\Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\Project.csproj",
+        "projectUniqueName": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\project\\Project.csproj",
         "projectName": "Project",
-        "projectPath": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\Project.csproj",
+        "projectPath": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\project\\Project.csproj",
         "packagesPath": "C:\\Users\\ladyb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\Project\\obj\\",
+        "outputPath": "C:\\Users\\ladyb\\OneDrive\\Desktop\\Coursework2\\project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ladyb\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -46,22 +46,5 @@ namespace albumsContext
                 optionsBuilder.UseSqlite("Data Source=chinook.db");
             }
         }
-
-        // Optional: configure relationships, constraints, etc.
-        // protected override void OnModelCreating(ModelBuilder modelBuilder)
-        // {
-        //     base.OnModelCreating(modelBuilder);
-
-        //     //  ensure Title in Album is required
-        //     modelBuilder.Entity<Album>()
-        //         .Property(a => a.Title)
-        //         .IsRequired();
-
-        //     // Artist-Album relationship
-        //     modelBuilder.Entity<Album>()
-        //         .HasOne(a => a.Artist)
-        //         .WithMany(ar => ar.Albums)
-        //         .HasForeignKey(a => a.ArtistId);
-        // }
     }
 }

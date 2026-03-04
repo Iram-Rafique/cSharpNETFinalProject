@@ -9,6 +9,22 @@
 @* insert link *@
 <a class="btn insertBtn" asp-page="/Insert">Add Album</a>
 <div class="table-wrapper">
+    @* search bar *@
+    <form method="get" class="search-form">
+        <div class="input">
+    <input type="text" name="SearchTerm" placeholder="Search by Album or Artist" value="@Model.SearchTerm" class="search-form-input" />
+    </div>
+    <div class="searchInputBtn">
+    <button type="submit" class="searchBtn">Search</button>
+    </div>
+        @* Show “Show All Albums” only if a search is active *@
+    @if (!string.IsNullOrEmpty(Model.SearchTerm))
+    {
+        <div class="searchREturnbtn">
+        <a href="/Index" class="btn reset-btn">Show All Albums</a>
+        </div>
+    }
+</form>
 <table>
     <thead>
         <tr>
