@@ -9,35 +9,35 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Project
 build_property.RootNamespace = Project
-build_property.ProjectDir = C:\Users\ladyb\OneDrive\Desktop\Coursework2\project\
+build_property.ProjectDir = C:\Users\ladyb\OneDrive\Desktop\Coursework2\Project\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\ladyb\OneDrive\Desktop\Coursework2\project
+build_property.MSBuildProjectDirectory = C:\Users\ladyb\OneDrive\Desktop\Coursework2\Project
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/ladyb/OneDrive/Desktop/Coursework2/project/Pages/Delete.cshtml]
+[C:/Users/ladyb/OneDrive/Desktop/Coursework2/Project/Pages/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ladyb/OneDrive/Desktop/Coursework2/project/Pages/Index.cshtml]
+[C:/Users/ladyb/OneDrive/Desktop/Coursework2/Project/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ladyb/OneDrive/Desktop/Coursework2/project/Pages/Insert.cshtml]
+[C:/Users/ladyb/OneDrive/Desktop/Coursework2/Project/Pages/Insert.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5zZXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ladyb/OneDrive/Desktop/Coursework2/project/Pages/Update.cshtml]
+[C:/Users/ladyb/OneDrive/Desktop/Coursework2/Project/Pages/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ladyb/OneDrive/Desktop/Coursework2/project/Pages/ViewAlbumDetails.cshtml]
+[C:/Users/ladyb/OneDrive/Desktop/Coursework2/Project/Pages/ViewAlbumDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlld0FsYnVtRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ladyb/OneDrive/Desktop/Coursework2/project/Pages/_Layout.cshtml]
+[C:/Users/ladyb/OneDrive/Desktop/Coursework2/Project/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
